@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  etl_data:
+    cmd: python3 src/data/transform_data.py --config_path=params.yaml
+    deps:
+    - path: src/data/fetch_data.py
+      md5: 42a7c1d3ecc347b4a49b43f687b1ca1d
+      size: 1426
+    - path: src/data/transform_data.py
+      md5: e24407bba9ea87b59713d52c06ea87e8
+      size: 2317
+    outs:
+    - path: data/raw/winequality-red.csv
+      md5: 7d814a1bda02145efe703f4e1c01847a
+      size: 91999

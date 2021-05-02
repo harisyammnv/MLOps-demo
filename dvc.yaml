@@ -1,0 +1,8 @@
+stages:
+  etl_data:
+    cmd: python3 src/data/transform_data.py --config_path=params.yaml
+    deps:
+    - src/data/fetch_data.py
+    - src/data/transform_data.py
+    outs:
+    - data/raw/winequality-red.csv

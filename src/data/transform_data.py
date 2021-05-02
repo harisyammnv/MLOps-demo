@@ -32,10 +32,8 @@ def read_params(config_path: str):
 
 @click.command()
 @click.option('--config_path', help="Path to Configuration File")
-def make_dataset(config_path: str):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
+def transform_dataset(config_path: str):
+    
     logger = logging.getLogger()
     logger.info('Parsing the config file supplied')
 
@@ -67,4 +65,4 @@ if __name__ == '__main__':
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
     
-    make_dataset()
+    transform_dataset()

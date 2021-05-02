@@ -6,3 +6,12 @@ stages:
     - src/data/transform_data.py
     outs:
     - data/raw/winequality-red.csv
+  
+  split_data:
+    cmd: python3 src/data/split_data.py --config_path=params.yaml
+    deps:
+    - src/data/split_data.py
+    - data/raw/winequality-red.csv
+    outs:
+    - data/processed/train_wine_quality.csv
+    - data/processed/test_wine_quality.csv

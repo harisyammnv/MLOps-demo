@@ -17,7 +17,7 @@ stages:
     - data/processed/test_wine_quality.csv
 
   train_and_evaluate:
-    cmd: python src/models/train_model.py --config=params.yaml
+    cmd: python3 src/models/train_model.py --config_path=params.yaml
     deps:
     - data/processed/train_wine_quality.csv
     - data/processed/test_wine_quality.csv
@@ -26,9 +26,9 @@ stages:
     - estimators.ElasticNet.params.alpha
     - estimators.ElasticNet.params.l1_ratio
     metrics:
-    - report/scores.json:
+    - reports/scores.json:
         cache: false
-    - report/params.json:
+    - reports/params.json:
         cache: false
     outs:
     - models/model.joblib

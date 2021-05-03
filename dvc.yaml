@@ -5,13 +5,30 @@ stages:
     - src/data/fetch_data.py
     - src/data/transform_data.py
     outs:
-    - data/raw/winequality-red.csv
+    - data/raw/winequality-white.csv
   
   split_data:
     cmd: python3 src/data/split_data.py --config_path=params.yaml
     deps:
     - src/data/split_data.py
-    - data/raw/winequality-red.csv
+    - data/raw/winequality-white.csv
     outs:
     - data/processed/train_wine_quality.csv
     - data/processed/test_wine_quality.csv
+
+  train_and_evaluate:
+    cmd: python src/models/train_model.py --config=params.yaml
+    deps:
+    - data/processed/train_wine_quality.csv
+    - data/processed/test_wine_quality.csv
+    - src/models/train_model.py
+    params:
+    - estimators.ElasticNet.params.alpha
+    - estimators.ElasticNet.params.l1_ratio
+    metrics:
+    - report/scores.json:
+        cache: false
+    - report/params.json:
+        cache: false
+    outs:
+    - models/model.joblib

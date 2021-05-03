@@ -1,11 +1,11 @@
 base:
   project: winequality-project
   random_state: 42
-  target_col: TARGET
+  target_col: quality
 
 data_source:
   s3_bucket: mlops-wine-demo
-  filename: winequality-red.csv
+  filename: winequality-white.csv
 
 load_data:
   raw_dataset_path: data/raw
@@ -22,3 +22,7 @@ estimators:
       l1_ratio: 0.89
 
 model_dir: models
+
+reports:
+  params: reports/params.json
+  scores: reports/scores.json

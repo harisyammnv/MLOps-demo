@@ -92,3 +92,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+
+      - name: Create EBS application
+        run: |
+          eb init -p python-3.8 wine-quality --region us-east-1
+      # Deploy to (or Create) the Elastic Beanstalk environment
+      - name: Create test environment & deploy
+        run: |
+          (eb use test-environment && eb status test-environment && eb deploy) || eb create test-environment

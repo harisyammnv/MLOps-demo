@@ -28,3 +28,5 @@ model_dir: models
 reports:
   params: reports/params.json
   scores: reports/scores.json
+
+webapp_model_dir: models/model.joblib

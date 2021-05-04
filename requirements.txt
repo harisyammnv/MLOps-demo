@@ -66,7 +66,6 @@ pathlib2==2.3.5
 pathspec==0.8.1
 pexpect==4.6.0
 phonenumbers==8.12.22
-Pillow==7.2.0
 ply==3.11
 pop-transition==1.1.2
 protobuf==3.12.3

@@ -28,12 +28,10 @@ def read_params(config_path=params_path):
 def predict(data):
     config = read_params(params_path)
     model_dir_path = config["webapp_model_dir"]
-    print(model_dir_path)
     model = joblib.load(model_dir_path)
     prediction = model.predict(data).tolist()[0]
-    print(prediction)
     try:
-        if 3 <= prediction <= 8:
+        if 3 <= prediction <= 9:
             return prediction
         else:
             raise NotInRange

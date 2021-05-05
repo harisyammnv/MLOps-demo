@@ -20,8 +20,10 @@ estimators:
     params:
       #alpha: 0.88
       #l1_ratio: 0.89
-      alpha: 0.9
-      l1_ratio: 0.4
+      #alpha: 0.9
+      #l1_ratio: 0.4
+      alpha: 0.1
+      l1_ratio: 0.01
 
 model_dir: models
 
@@ -30,3 +32,10 @@ reports:
   scores: reports/scores.json
 
 webapp_model_dir: models/model.joblib
+
+mlflow_config:
+  artifacts_dir: mlflow-artifacts
+  experiment_name: ElasticNet regression
+  run_name: mlops
+  registered_model_name: ElasticNetWineModel
+  remote_server_uri: http://ec2-18-234-217-20.compute-1.amazonaws.com:5000/

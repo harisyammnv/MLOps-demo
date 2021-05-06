@@ -25,8 +25,9 @@ stages:
     params:
     - estimators.ElasticNet.params.alpha
     - estimators.ElasticNet.params.l1_ratio
-    
+
   log_production_model:
     cmd: python3 src/models/log_production_model.py --config_path=params.yaml
     deps:
     - src/models/log_production_model.py
+    - models/model.joblib

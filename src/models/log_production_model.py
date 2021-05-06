@@ -33,6 +33,7 @@ def log_production_model(config_path):
     
     runs = mlflow.search_runs(experiment_ids=1)
     lowest = runs["metrics.mae"].sort_values(ascending=True).min()
+    print(lowest)
     lowest_run_id = runs[runs["metrics.mae"] == lowest]["run_id"].iloc[0]
     
     logger.info('Obtaining the model with the best metric')

@@ -11,3 +11,7 @@ tox
 flake8
 flask
 gunicorn
+mlflow==1.15.0
+dotmap
+boto3
+python-dotenv
